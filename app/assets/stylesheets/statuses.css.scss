@@ -1,0 +1,27 @@
+// Place all the styles related to the statuses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.statuses {
+  margin-top: 2em;
+
+  list-style: none;
+  margin-left: 0;
+
+  .person, .created-at {
+    color: #ddd;
+  }
+
+  .created-at abbr {
+    border-bottom: none;
+  }
+}
+
+.latest p {
+
+  .text {
+    display: block;
+    font-size: 2em;
+    line-height: 1em;
+  }
+}

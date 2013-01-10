@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
@@ -21,18 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'tinder'
+gem 'bootstrap-sass'
+gem 'recap'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :test do
+  gem 'mocha', require: false
+  gem 'factory_girl_rails'
+end

@@ -1,0 +1,51 @@
+<h1>Help</h1>
+
+<p>Here are some brief instructions for getting going.</p>
+
+
+<h2>Before you start</h2>
+
+<h3>Setting up a user</h3>
+
+<p>There's no web-based way to do this right now. Instead, you'll need to create one directly in the database.</p>
+<p>For example:</p>
+<p><pre><code>$ rails console
+irb> Person.create(name: "James Adam", campfire_account: "lazyatom", campfire_token: "abc123def456", campfire_room: "Stuff")
+=> #&lt;Person id: 1, name: "James Adam", token: "abcd1234", campfire_account: "lazyatom", campfire_token: "abc123def456", campfire_room: "Stuff", created_at: "2013-01-09 19:23:21", updated_at: "2013-01-09 19:23:21"&gt;
+</pre></code></p>
+
+You'll need to take a note of the generated token.
+
+<h3>Configuration</h3>
+
+I had hoped to be able to support configuration via environment variables, but since I want to be able to run this command from various GUI tools, the simplest way forward is with a <tt>~/.freerange.yml</tt> file:
+
+<p><pre><code>---
+GFR_STATUS_URI=http://james:mytoken1234@nosy.gofreerange.com</code></pre></p>
+
+<h2>Usage</h2>
+
+<p>You can post what you're currently working on in lots of different ways, all centred around the <tt>freerange</tt> cli tool. There's no way to post directly via the web right now, but that's because I don't expect people to want to visit a website in the middle of their work.</p>
+
+<h3>From the shell</h3>
+
+<p>Assuming that you've set up your environment variables, you can simply run:</p>
+
+<p><pre><code>$ freerange status "reticulating all the splines"</code></pre></p>
+
+<p>This can be shortened further using shell aliases. For example, with bash or zsh:</p>
+
+<p><pre><code>$ alias st="freerange status"
+$ st "doing the things"</code></pre></p>
+
+
+<h3>From Quicksilver</h3>
+
+<p>Posting from Quicksilver can be very fast and fluid</p>
+
+
+<h3>From Alfred</h3>
+
+<p>Ensuring that your installed version of the <tt>freerange</tt> gem includes the <tt>status</tt> command, download <a href="/downloads/alfred/GFR Status.alfredextension">this extension</a>.</p>
+
+<p>Next, ensure that

@@ -2,12 +2,23 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  fixtures :all
+require 'mocha/setup'
 
-  # Add more helper methods to be used by all tests here...
+FactoryGirl.define do
+  factory :person do
+    name "Joe"
+  end
+
+  factory :status do
+    person
+    created_at { Time.zone.now }
+  end
+end
+
+class ActiveSupport::TestCase
+  include FactoryGirl::Syntax::Methods
+end
+
+class ActionController::TestCase
+  include FactoryGirl::Syntax::Methods
 end
