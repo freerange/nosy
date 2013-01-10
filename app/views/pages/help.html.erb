@@ -8,8 +8,11 @@
 <h3>Setting up a user</h3>
 
 <p>There's no web-based way to do this right now. Instead, you'll need to create one directly in the database.</p>
+
+<p>You'll need to know your Campfire API key to do this. You can find it at <a href="https://gofreerange.campfirenow.com/member/edit">the My info page</a> on the Campfire site.</p>
+
 <p>For example:</p>
-<p><pre><code>$ rails console
+<p><pre><code>$ bundle exec rails console
 irb> Person.create(name: "James Adam", campfire_account: "lazyatom", campfire_token: "abc123def456", campfire_room: "Stuff")
 => #&lt;Person id: 1, name: "James Adam", token: "abcd1234", campfire_account: "lazyatom", campfire_token: "abc123def456", campfire_room: "Stuff", created_at: "2013-01-09 19:23:21", updated_at: "2013-01-09 19:23:21"&gt;
 </pre></code></p>
@@ -75,6 +78,8 @@ Check the 'Contents' tab, and maybe hit the 'reload' arrow in the bottom right o
 <%= image_tag "quicksilver/select-status.png" %>
 
 <p>Once it's selected, hit enter and your status should be posted. You won't see any visual feedback, but checking on the site or in Campfire should verify that everything is OK.</p>
+
+<p><strong>NOTE:</strong> you might not see postings from nosy appear in your Campfire client, because of the way Campfire polling works. Reloading the connection or viewing the Transcripts will verify that the message really was posted, and everyone else will have seen it immediately.</p>
 
 <h3 id="alfred">Alfred</h3>
 
