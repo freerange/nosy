@@ -2,7 +2,6 @@
 
 <p>Here are some brief instructions for getting going.</p>
 
-
 <h2>Before you start</h2>
 
 <h3>Setting up a user</h3>
@@ -33,7 +32,9 @@ GFR_STATUS_URI=http://anything:abcd1234@nosy.gofreerange.com</code></pre></p>
 <ul>
   <li><a href="#quicksilver">From Quicksilver</a></li>
   <li><a href="#alfred">From Alfred</a></li>
+  <li><a href="#terminal">From a terminal</a></li>
 </ul>
+
 
 <h3 id="quicksilver">Quicksilver</h3>
 
@@ -102,4 +103,20 @@ Check the 'Contents' tab, and maybe hit the 'reload' arrow in the bottom right o
 <%= image_tag "alfred/write-status.png" %>
 
 <p>Hit enter and your status will be updated and sent to Campfire. Easy!</p>
+
+
+<h3 id="terminal">Terminal</h3>
+
+<p>First, and importantly, create your user and <tt>~/.freerange.yml</tt> file as described above.</p>
+
+<p>Download <a href="/downloads/status.sh">this script</a> and save it somewhere that's in your <tt>$PATH</tt>.</p>
+
+<p>You can then post updates by providing your status as a quoted argument to the shell script, e.g.:</p>
+
+<p><pre><code>$ status.sh "doing something with the widgets"</code></pre></p>
+
+<p>You might want to create an alias in your shell, so that you can quickly type the command. Maybe something like:</p>
+
+<p><pre><code>$ alias st=status.sh
+$ st "doing something with the widgets"</code></pre></p>
 
