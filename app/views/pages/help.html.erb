@@ -21,31 +21,80 @@ You'll need to take a note of the generated token.
 I had hoped to be able to support configuration via environment variables, but since I want to be able to run this command from various GUI tools, the simplest way forward is with a <tt>~/.freerange.yml</tt> file:
 
 <p><pre><code>---
-GFR_STATUS_URI=http://james:mytoken1234@nosy.gofreerange.com</code></pre></p>
+GFR_STATUS_URI=http://anything:abcd1234@nosy.gofreerange.com</code></pre></p>
 
 <h2>Usage</h2>
 
-<p>You can post what you're currently working on in lots of different ways, all centred around the <tt>freerange</tt> cli tool. There's no way to post directly via the web right now, but that's because I don't expect people to want to visit a website in the middle of their work.</p>
+<p>There's no way to post directly via the web right now, but that's because I don't expect people to want to visit a website in the middle of their work.</p>
 
-<h3>From the shell</h3>
+<ul>
+  <li><a href="#quicksilver">From Quicksilver</a></li>
+  <li><a href="#alfred">From Alfred</a></li>
+</ul>
 
-<p>Assuming that you've set up your environment variables, you can simply run:</p>
+<h3 id="quicksilver">Quicksilver</h3>
 
-<p><pre><code>$ freerange status "reticulating all the splines"</code></pre></p>
+<p>Posting from Quicksilver can be very fast and fluid, with minimal interuption to your actualwork.</p>
 
-<p>This can be shortened further using shell aliases. For example, with bash or zsh:</p>
+<p>First, and importantly, create your user and <tt>~/.freerange.yml</tt> file as described above.</p>
 
-<p><pre><code>$ alias st="freerange status"
-$ st "doing the things"</code></pre></p>
+<p>Download <a href="/downloads/status.sh">this script</a> and save it into <tt>~/Library/Application Support/Quicksilver/Actions</tt>. We also need to mark it as executable:</p>
 
+<p><pre><code>$ chmod +x ~/Library/Application Support/Quicksilver/Actions/status.sh</code></pre></p>
 
-<h3>From Quicksilver</h3>
+<p>Next, we need to tell Quicksilver about it. In the Quicksilver preferences, choose 'Catalog', and then select 'Custom' from the sidebar. It should look something like this:</p>
 
-<p>Posting from Quicksilver can be very fast and fluid</p>
+<%= image_tag "quicksilver/catalog.png" %>
 
+<p>We want to add a new folder - the <tt>Actions</tt> folder - to the catalog. Click the <tt>+</tt> in the bar at the bottom, choose 'File & Folder Scanner', and then choose the <tt>Actions</tt> folder (you may need to use <tt>cmd-shift-G</tt> to navigate to <tt>~/Library/Application Support/Quicksilver/</tt>):
 
-<h3>From Alfred</h3>
+<%= image_tag "quicksilver/add-actions.png" %>
 
-<p>Ensuring that your installed version of the <tt>freerange</tt> gem includes the <tt>status</tt> command, download <a href="/downloads/alfred/GFR Status.alfredextension">this extension</a>.</p>
+<p>Click 'Open', then back in Quicksilver click the 'i' button at the bottom right to configure this folder. We want to:</p>
 
-<p>Next, ensure that
+<ul>
+  <li>Include contents: Folder contents</li>
+  <li>Search 1 level deep</li>
+  <li>Omit source item</li>
+</ul>
+
+<p>It should look something like this:</p>
+
+<%= image_tag "quicksilver/configure-catalog.png" %>
+
+Check the 'Contents' tab, and maybe hit the 'reload' arrow in the bottom right of the main Catalog window if the <tt>status.sh</tt> script hasn't appeared.</p>
+
+<%= image_tag "quicksilver/check-catalog.png" %>
+
+<p>You should now be ready to go. Activate Quicksilver, and hit the <tt>'</tt> to start text entry mode. Type your status:</p>
+
+<%= image_tag "quicksilver/typing.png" %>
+
+<p>Then hit <tt>tab</tt>, and start typing 'status'</p>
+
+<%= image_tag "quicksilver/select-status.png" %>
+
+<p>Once it's selected, hit enter and your status should be posted. You won't see any visual feedback, but checking on the site or in Campfire should verify that everything is OK.</p>
+
+<h3 id="alfred">Alfred</h3>
+
+<p>Posting from Alfred is as easy as Quicksilver, and the setup is even easier. <strong>NOTE:</strong> you'll need to have purchased the 'Power Pack' in order to use this extension.</p>
+
+<p>First, and importantly, create your user and <tt>~/.freerange.yml</tt> file as described above.</p>
+
+<p>Next, download the extension:</p>
+
+<p><a href="/downloads/GFR Status.alfredextension" class="btn btn-large btn-primary">Download Alfred Extension</a></p>
+
+<p>Once it's downloaded, double-click it to open it in Alfred. Choose 'Import' to actually install it (or replace any older version). That's about it as far as the setup goes.</p>
+
+<p>To use it, start typing <tt>status</tt> (often <tt>st</tt> is enough), and hit <tt>tab</tt> to auto-complete the command:</p>
+
+<%= image_tag "alfred/type-st.png" %>
+
+<p>Then, after the word <tt>status</tt> just start typing whatever you're working on:</p>
+
+<%= image_tag "alfred/write-status.png" %>
+
+<p>Hit enter and your status will be updated and sent to Campfire. Easy!</p>
+
