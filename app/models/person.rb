@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :name, :campfire_subdomain, :campfire_token, :campfire_room
+  attr_accessible :name, :email, :campfire_subdomain, :campfire_token, :campfire_room
 
   has_many :statuses
 
