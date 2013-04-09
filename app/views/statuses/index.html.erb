@@ -4,6 +4,7 @@
       <% @latest_statuses.each do |status| %>
         <%= content_tag_for :li, status do %>
           <p>
+            <span class="avatar"><%= gravatar(status.person, 60) %></span>
             <span class="person"><%= status.person.name %></span>
             <span class="created-at"><%= distance_of_time_in_words_to_now_tag(status.created_at) %> ago</span>
             <span class="text"><%= status.text %></span>
@@ -17,7 +18,7 @@
       <% @older_statuses.each do |status| %>
         <%= content_tag_for :li, status do %>
           <p>
-            <span class="person"><%= status.person.name %></span>
+            <span class="avatar"><%= gravatar(status.person, 20, title: status.person.name) %></span>
             <span class="text"><%= status.text %></span>
             <span class="created-at"><%= distance_of_time_in_words_to_now_tag(status.created_at) %> ago</span>
           </p>

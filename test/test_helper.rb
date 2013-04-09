@@ -7,6 +7,7 @@ require 'mocha/setup'
 FactoryGirl.define do
   factory :person do
     name "Joe"
+    email "joe@example.com"
   end
 
   factory :status do

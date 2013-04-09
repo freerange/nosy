@@ -8,6 +8,15 @@ ul.statuses {
   list-style: none;
   margin-left: 0;
 
+  .status {
+    clear: both;
+  }
+
+  .avatar {
+    float: left;
+    margin-right: 10px;
+  }
+
   .person, .created-at {
     color: #ddd;
   }
